@@ -18,10 +18,14 @@ custom_mark1
   digraph G {
     size ="4,4"
     batch [shape=box,label="NvDsPreprocessBatch"]
-    batch -> batch_meta [shape=box,label="NvDsBatchMeta* batch_meta"]
-    batch_meta -> frame_meta_list [shape=box,label="NvDsFrameMetaList* frame_meta_list"]
-    frame_meta_list -> frame_meta [shape=box,label="NvDsFrameMeta"]
-    frame_meta -> pad_index [shape=box,label="guint pad_index"]
+    batch_meta [shape=box,label="NvDsBatchMeta* batch_meta"]
+    frame_meta_list [shape=box,label="NvDsFrameMetaList* frame_meta_list"]
+    frame_meta [shape=box,label="NvDsFrameMeta"]
+    pad_index [shape=box,label="guint pad_index"]
+    batch -> batch_meta 
+    batch_meta -> frame_meta_list
+    frame_meta_list -> frame_meta
+    frame_meta -> pad_index
   }
 custom_mark1
 </details>
