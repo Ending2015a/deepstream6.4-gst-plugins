@@ -10,22 +10,22 @@
 
 > How to access frame metainfos, e.g. stream index, from [NvDsPreprocessBatch](https://docs.nvidia.com/metropolis/deepstream/dev-guide/sdk-api/structNvDsPreProcessBatch.html) in the [custom preprocess lib](/gst-nvdspreprocess/nvdspreprocess_lib/nvdspreprocess_lib.cpp#L100)?
 
-![Alt text](https://g.gravizo.com/source/custom_mark1?https%3A%2F%2Fraw.githubusercontent.com%2FEnding2015a%2Fdeepstream6.4-gst-plugins%2Fmaster%2FREADME.md)
+
 
 <details> 
 <summary></summary>
 custom_mark1
   digraph G {
     size ="4,4"
-    batch [shape=box,label="NvDsPreprocessBatch"]
-    batch_meta [shape=box,label="NvDsBatchMeta* batch_meta"]
-    frame_meta_list [shape=box,label="NvDsFrameMetaList* frame_meta_list"]
-    frame_meta [shape=box,label="NvDsFrameMeta"]
-    pad_index [shape=box,label="guint pad_index"]
-    batch -> batch_meta 
-    batch_meta -> frame_meta_list
-    frame_meta_list -> frame_meta
-    frame_meta -> pad_index
+    batch [shape=box,label="NvDsPreprocessBatch*"];
+    batch_meta [shape=box,label="NvDsBatchMeta*"];
+    frame_meta_list [shape=box,label="NvDsFrameMetaList*"];
+    frame_meta [shape=box,label="NvDsFrameMeta*"];
+    pad_index [shape=box,label="guint"];
+    batch -> batch_meta [label="batch->batch_meta"];
+    batch_meta -> frame_meta_list [label="batch_meta->frame_meta_list"];
+    frame_meta_list -> frame_meta [label="frame_meta_list->data"];
+    frame_meta -> pad_index [label="data->pad_index"]
   }
 custom_mark1
 </details>
